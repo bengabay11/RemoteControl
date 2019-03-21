@@ -4,6 +4,8 @@
     {
         void Start();
 
+        void Stop();
+
         void Send(string message);
 
         byte[] Receive(int bufferSize);
