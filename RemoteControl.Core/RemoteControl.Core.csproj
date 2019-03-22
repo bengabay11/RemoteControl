@@ -49,6 +49,7 @@
     <Compile Include="Interfaces\IClientAction.cs" />
     <Compile Include="Interfaces\IClientHandler.cs" />
     <Compile Include="Interfaces\IServer.cs" />
+    <Compile Include="Interfaces\ISocketManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

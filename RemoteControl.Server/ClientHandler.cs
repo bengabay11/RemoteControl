@@ -1,6 +1,5 @@
 ﻿using RemoteControl.Core.DTOs;
 using RemoteControl.Core.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Runtime.Serialization;
@@ -27,6 +26,7 @@ namespace RemoteControl.Server
             while (!_stop)
             {
                 ClientData clientData = Receive();
+                System.Console.WriteLine(clientData.Data);
                 foreach (KeyValuePair<ClientActionType, IClientAction> clientAction in _clientActions)
                 {
                     if (clientData.Action == clientAction.Key)

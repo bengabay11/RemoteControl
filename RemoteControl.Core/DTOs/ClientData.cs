@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RemoteControl.Core.DTOs
 {
+    [Serializable]
     public class ClientData
     {
         public ClientActionType Action { get; set; }

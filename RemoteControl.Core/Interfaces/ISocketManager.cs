@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace RemoteControl.Core.Interfaces
 {
-    interface SocketManager
+    public interface ISocketManager
     {
+        void Start();
+
+        void Stop();
     }
 }

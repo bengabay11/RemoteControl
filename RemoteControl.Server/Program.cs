@@ -1,4 +1,5 @@
 ﻿using RemoteControl.Core.Interfaces;
+using RemoteControl.Server.ClientActions;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -17,6 +18,7 @@ namespace RemoteControl.Server
             // Init the server Manager
             Dictionary<ClientActionType, IClientAction> clientActions = new Dictionary<ClientActionType, IClientAction>();
             // TODO: create client actions and add them to the dictionary.
+            clientActions.Add(ClientActionType.executeCommand, new TerminalAction());
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             ServerManager serverManager = new ServerManager(server, clientActions, binaryFormatter);
 
