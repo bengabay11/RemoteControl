@@ -1,0 +1,6 @@
+D:\Code\RemoteControl\RemoteControl.Core\bin\Debug\RemoteControl.Core.dll
+D:\Code\RemoteControl\RemoteControl.Core\bin\Debug\RemoteControl.Core.pdb
+D:\Code\RemoteControl\RemoteControl.Core\obj\Debug\RemoteControl.Core.csprojAssemblyReference.cache
+D:\Code\RemoteControl\RemoteControl.Core\obj\Debug\RemoteControl.Core.csproj.CoreCompileInputs.cache
+D:\Code\RemoteControl\RemoteControl.Core\obj\Debug\RemoteControl.Core.dll
+D:\Code\RemoteControl\RemoteControl.Core\obj\Debug\RemoteControl.Core.pdb

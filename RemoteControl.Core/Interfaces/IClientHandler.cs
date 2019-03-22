@@ -8,7 +8,7 @@ namespace RemoteControl.Core.Interfaces
 
         void Stop();
 
-        void Send(string message);
+        void Send(ServerData data);
 
         ClientData Receive();
     }

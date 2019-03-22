@@ -1,17 +1,24 @@
-﻿using RemoteControl.Core.Interfaces;
+﻿using RemoteControl.Core.DTOs;
+using RemoteControl.Core.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Net.Sockets;
+using System.Runtime.Serialization;
 
 namespace RemoteControl.Server
 {
     public class ClientHandler : IClientHandler
     {
-        private Socket _socket;
+        private readonly NetworkStream _networkStream;
+        private IFormatter _formatter;
+        private readonly IDictionary<ClientAction, Action<ClientData, Action<ServerData>>> _clientActions;
         private bool _stop;
 
-        public ClientHandler(Socket socket)
+        public ClientHandler(Socket socket, IFormatter formatter, IDictionary<ClientAction, Action<ClientData, Action<ServerData>>> clientActions)
         {
-            _socket = socket;
+            _networkStream = new NetworkStream(socket);
+            _formatter = formatter;
+            _clientActions = clientActions;
             _stop = false;
         }
 
@@ -19,23 +26,30 @@ namespace RemoteControl.Server
         {
             while (!_stop)
             {
-                // TODO: Receive command to execute from the cliet and execute it.
+                ClientData clientData = Receive();
+                foreach (KeyValuePair<ClientAction, Action<ClientData, Action<ServerData>>> clientAction in _clientActions)
+                {
+                    if (clientData.Action == clientAction.Key)
+                    {
+                        clientAction.Value(clientData, Send);
+                    }
+                }
             }
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            _stop = true;
         }
 
-        public byte[] Receive(int bufferSize)
+        public ClientData Receive()
         {
-            throw new NotImplementedException();
+            return (ClientData)_formatter.Deserialize(_networkStream);
         }
 
-        public void Send(string message)
+        public void Send(ServerData data)
         {
-            throw new NotImplementedException();
+            _formatter.Serialize(_networkStream, data);
         }
     }
 }

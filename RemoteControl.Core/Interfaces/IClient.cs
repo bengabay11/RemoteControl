@@ -1,11 +1,13 @@
-﻿namespace RemoteControl.Core.Interfaces
+﻿using RemoteControl.Core.DTOs;
+
+namespace RemoteControl.Core.Interfaces
 {
     public interface IClient
     {
         void Connect(string ip, int port);
 
-        void Send(string message);
+        void Send(ClientData data);
 
-        byte[] Receive(int bufferSize);
+        ServerData Receive();
     }
 }

@@ -1,0 +1,2 @@
+D:\Code\RemoteControl\RemoteControl.Server\obj\Debug\RemoteControl.Server.csprojAssemblyReference.cache
+D:\Code\RemoteControl\RemoteControl.Server\obj\Debug\RemoteControl.Server.csproj.CoreCompileInputs.cache

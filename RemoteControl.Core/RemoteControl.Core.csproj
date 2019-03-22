@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\ClientData.cs" />
+    <Compile Include="DTOs\ServerData.cs" />
+    <Compile Include="Enums\ClientAction.cs" />
+    <Compile Include="Enums\ServerAction.cs" />
     <Compile Include="Interfaces\IClient.cs" />
     <Compile Include="Interfaces\IClientHandler.cs" />
     <Compile Include="Interfaces\IServer.cs" />
