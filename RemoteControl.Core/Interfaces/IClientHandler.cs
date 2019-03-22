@@ -1,4 +1,6 @@
-﻿namespace RemoteControl.Core.Interfaces
+﻿using RemoteControl.Core.DTOs;
+
+namespace RemoteControl.Core.Interfaces
 {
     public interface IClientHandler
     {
@@ -8,6 +10,6 @@
 
         void Send(string message);
 
-        byte[] Receive(int bufferSize);
+        ClientData Receive();
     }
 }

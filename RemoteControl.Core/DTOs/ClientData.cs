@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace RemoteControl.Core.DTOs
 {
-    class ClientData
+    public class ClientData
     {
+        public ClientAction Action { get; set; }
+        public string Data { get; set; }
+
+        public ClientData(ClientAction action, string data)
+        {
+            Action = action;
+            Data = data;
+        }
     }
 }
