@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RemoteControl.Server
 {
-    public class ServerManager
+    public class ServerManager : ISocketManager
     {
         private IServer _server;
         private readonly IFormatter _formatter;
