@@ -11,5 +11,8 @@
     <Setting Name="maxConnections" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
+    <Setting Name="listeningMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Listening on port {0}...</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

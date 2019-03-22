@@ -58,5 +58,17 @@ namespace RemoteControl.Server.Properties {
                 this["maxConnections"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Listening on port {0}...")]
+        public string listeningMessage {
+            get {
+                return ((string)(this["listeningMessage"]));
+            }
+            set {
+                this["listeningMessage"] = value;
+            }
+        }
     }
 }

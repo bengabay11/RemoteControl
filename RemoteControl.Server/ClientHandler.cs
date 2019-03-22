@@ -11,10 +11,10 @@ namespace RemoteControl.Server
     {
         private readonly NetworkStream _networkStream;
         private IFormatter _formatter;
-        private readonly IDictionary<ClientActionType, Action<ClientData, Action<ServerData>>> _clientActions;
+        private readonly IDictionary<ClientActionType, IClientAction> _clientActions;
         private bool _stop;
 
-        public ClientHandler(Socket socket, IFormatter formatter, IDictionary<ClientActionType, Action<ClientData, Action<ServerData>>> clientActions)
+        public ClientHandler(Socket socket, IFormatter formatter, IDictionary<ClientActionType, IClientAction> clientActions)
         {
             _networkStream = new NetworkStream(socket);
             _formatter = formatter;
@@ -27,11 +27,11 @@ namespace RemoteControl.Server
             while (!_stop)
             {
                 ClientData clientData = Receive();
-                foreach (KeyValuePair<ClientActionType, Action<ClientData, Action<ServerData>>> clientAction in _clientActions)
+                foreach (KeyValuePair<ClientActionType, IClientAction> clientAction in _clientActions)
                 {
                     if (clientData.Action == clientAction.Key)
                     {
-                        clientAction.Value(clientData, Send);
+                        clientAction.Value.Act(clientData, Send);
                     }
                 }
             }

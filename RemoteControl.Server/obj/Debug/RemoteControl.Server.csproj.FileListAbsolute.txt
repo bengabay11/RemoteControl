@@ -1,2 +1,10 @@
 D:\Code\RemoteControl\RemoteControl.Server\obj\Debug\RemoteControl.Server.csprojAssemblyReference.cache
 D:\Code\RemoteControl\RemoteControl.Server\obj\Debug\RemoteControl.Server.csproj.CoreCompileInputs.cache
+D:\Code\RemoteControl\RemoteControl.Server\bin\Debug\RemoteControl.Server.exe.config
+D:\Code\RemoteControl\RemoteControl.Server\bin\Debug\RemoteControl.Server.exe
+D:\Code\RemoteControl\RemoteControl.Server\bin\Debug\RemoteControl.Server.pdb
+D:\Code\RemoteControl\RemoteControl.Server\bin\Debug\RemoteControl.Core.dll
+D:\Code\RemoteControl\RemoteControl.Server\bin\Debug\RemoteControl.Core.pdb
+D:\Code\RemoteControl\RemoteControl.Server\obj\Debug\RemoteControl.Server.csproj.CopyComplete
+D:\Code\RemoteControl\RemoteControl.Server\obj\Debug\RemoteControl.Server.exe
+D:\Code\RemoteControl\RemoteControl.Server\obj\Debug\RemoteControl.Server.pdb

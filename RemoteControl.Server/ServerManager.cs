@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 
 namespace RemoteControl.Server
@@ -13,10 +12,10 @@ namespace RemoteControl.Server
     {
         private IServer _server;
         private readonly IFormatter _formatter;
-        private readonly IDictionary<ClientActionType, Action<ClientData, Action<ServerData>>> _clientActions;
+        private readonly IDictionary<ClientActionType, IClientAction> _clientActions;
         private bool _stop;
 
-        public ServerManager(IServer server, IDictionary<ClientActionType, Action<ClientData, Action<ServerData>>> clientActions, IFormatter formatter)
+        public ServerManager(IServer server, IDictionary<ClientActionType, IClientAction> clientActions, IFormatter formatter)
         {
             _server = server;
             _formatter = formatter;

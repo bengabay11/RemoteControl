@@ -1,4 +1,5 @@
 ﻿using RemoteControl.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -18,6 +19,8 @@ namespace RemoteControl.Server
             // TODO: create client actions and add them to the dictionary.
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             ServerManager serverManager = new ServerManager(server, clientActions, binaryFormatter);
+
+            Console.WriteLine(string.Format(Properties.Settings.Default.listeningMessage, Properties.Settings.Default.port));
             serverManager.Start();
         }
     }
