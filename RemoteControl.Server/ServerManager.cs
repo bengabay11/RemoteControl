@@ -1,4 +1,5 @@
 ﻿using RemoteControl.Core.Interfaces;
+using System.Net.Sockets;
 
 namespace RemoteControl.Server
 {
@@ -17,7 +18,7 @@ namespace RemoteControl.Server
         {
             while (!_stop)
             {
-
+                Socket client = _server.Accept();
             }
         }
 

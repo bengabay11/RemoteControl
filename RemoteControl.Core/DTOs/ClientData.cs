@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RemoteControl.Server
+namespace RemoteControl.Core.DTOs
 {
-    public class Program
+    class ClientData
     {
-        public static void Main(string[] args)
-        {
-
-        }
     }
 }

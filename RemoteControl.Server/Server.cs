@@ -4,7 +4,7 @@ using System.Net.Sockets;
 
 namespace RemoteControl.Server
 {
-    class Server : IServer
+    public class Server : IServer
     {
         private Socket _socket;
 
@@ -12,7 +12,7 @@ namespace RemoteControl.Server
         {
             IPAddress ipAddress = IPAddress.Parse(ip);
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, port);
-            Socket listener = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            _socket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             _socket.Bind(localEndPoint);
         }
 
