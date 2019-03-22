@@ -1,4 +1,4 @@
-﻿public enum ServerAction
+﻿public enum ServerActionType
 {
     commandOutput,
     unkownmError,

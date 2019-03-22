@@ -8,10 +8,10 @@ namespace RemoteControl.Core.DTOs
 {
     public class ServerData
     {
-        public ServerAction Action { get; set; }
+        public ServerActionType Action { get; set; }
         public string Data { get; set; }
             
-        public ServerData(ServerAction action, string data)
+        public ServerData(ServerActionType action, string data)
         {
             Action = action;
             Data = data;

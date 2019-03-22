@@ -1,4 +1,6 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+﻿using RemoteControl.Core.Interfaces;
+using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace RemoteControl.Server
 {
@@ -10,10 +12,12 @@ namespace RemoteControl.Server
             Server server = new Server();
             server.Bind(Properties.Settings.Default.ip, Properties.Settings.Default.port);
             server.Listen(Properties.Settings.Default.maxConnections);
-                
+
             // Init the server Manager
+            Dictionary<ClientActionType, IClientAction> clientActions = new Dictionary<ClientActionType, IClientAction>();
+            // TODO: create client actions and add them to the dictionary.
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            ServerManager serverManager = new ServerManager(server, null, binaryFormatter);
+            ServerManager serverManager = new ServerManager(server, clientActions, binaryFormatter);
             serverManager.Start();
         }
     }

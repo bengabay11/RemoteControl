@@ -1,4 +1,4 @@
-﻿public enum ClientAction
+﻿public enum ClientActionType
 {
     executeCommand,
     exit

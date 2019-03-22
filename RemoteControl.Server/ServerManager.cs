@@ -13,10 +13,10 @@ namespace RemoteControl.Server
     {
         private IServer _server;
         private readonly IFormatter _formatter;
-        private readonly IDictionary<ClientAction, Action<ClientData, Action<ServerData>>> _clientActions;
+        private readonly IDictionary<ClientActionType, Action<ClientData, Action<ServerData>>> _clientActions;
         private bool _stop;
 
-        public ServerManager(IServer server, IDictionary<ClientAction, Action<ClientData, Action<ServerData>>> clientActions, IFormatter formatter)
+        public ServerManager(IServer server, IDictionary<ClientActionType, Action<ClientData, Action<ServerData>>> clientActions, IFormatter formatter)
         {
             _server = server;
             _formatter = formatter;
@@ -26,11 +26,10 @@ namespace RemoteControl.Server
 
         public void Start()
         {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
             while (!_stop)
             {
                 Socket client = _server.Accept();
-                ClientHandler clientHandler = new ClientHandler(client, binaryFormatter, _clientActions);
+                ClientHandler clientHandler = new ClientHandler(client, _formatter, _clientActions);
                 Task clientHandlerTask = new Task(clientHandler.Start);
                 clientHandlerTask.Start();
             }
