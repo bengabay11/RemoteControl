@@ -8,7 +8,7 @@ namespace RemoteControl.Client
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             Client client = new Client(binaryFormatter);
-            client.Connect("127.0.0.1", 8820);
+            client.Connect(Properties.Settings.Default.ServerIp, Properties.Settings.Default.ServerPort);
             ClientManager clientManager = new ClientManager(client);
             clientManager.Start();
         }
