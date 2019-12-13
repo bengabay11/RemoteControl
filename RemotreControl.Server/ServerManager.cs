@@ -10,28 +10,34 @@ namespace RemoteControl.Server
 {
     public class ServerManager : ISocketManager
     {
-        private IServer _server;
         private readonly IFormatter _formatter;
         private readonly IDictionary<ClientActionType, IClientAction> _clientActions;
         private bool _stop;
 
-        public ServerManager(IServer server, IDictionary<ClientActionType, IClientAction> clientActions, IFormatter formatter)
+        public ServerManager(IDictionary<ClientActionType, IClientAction> clientActions, IFormatter formatter)
         {
-            _server = server;
-            _formatter = formatter;
             _clientActions = clientActions;
+            _formatter = formatter;
             _stop = false;
         }
 
-        public void Start()
+        private void HandleClients(IServer server)
         {
             while (!_stop)
             {
-                Socket client = _server.Accept();
+                Socket client = server.Accept();
                 ClientHandler clientHandler = new ClientHandler(client, _formatter, _clientActions);
                 Task clientHandlerTask = new Task(clientHandler.Start);
                 clientHandlerTask.Start();
             }
+        }
+
+        public void Start(string ip, int port, int maxConnections)
+        {
+            IServer server = new Server();
+            server.Bind(ip, port);
+            server.Listen(maxConnections);
+            Task.Factory.StartNew(() => HandleClients(server));
         }
 
         public void Stop()

@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteControl.Server", "RemoteControl.Server\RemoteControl.Server.csproj", "{92A89DF5-CF08-4401-9DAA-9C97D5EDE19E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteControl.Core", "RemoteControl.Core\RemoteControl.Core.csproj", "{5E9B5F76-75D3-49D8-9D9A-D7C3030F1153}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteControl.Client", "RemoteControl.Client\RemoteControl.Client.csproj", "{BE861E5B-C02E-42A5-A12B-8C81E36B40D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemotreControl.Server", "RemotreControl.Server\RemotreControl.Server.csproj", "{02C3B880-C1E3-4508-B1C3-7176B677F765}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{92A89DF5-CF08-4401-9DAA-9C97D5EDE19E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92A89DF5-CF08-4401-9DAA-9C97D5EDE19E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92A89DF5-CF08-4401-9DAA-9C97D5EDE19E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92A89DF5-CF08-4401-9DAA-9C97D5EDE19E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5E9B5F76-75D3-49D8-9D9A-D7C3030F1153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E9B5F76-75D3-49D8-9D9A-D7C3030F1153}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E9B5F76-75D3-49D8-9D9A-D7C3030F1153}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{BE861E5B-C02E-42A5-A12B-8C81E36B40D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE861E5B-C02E-42A5-A12B-8C81E36B40D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE861E5B-C02E-42A5-A12B-8C81E36B40D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C3B880-C1E3-4508-B1C3-7176B677F765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C3B880-C1E3-4508-B1C3-7176B677F765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C3B880-C1E3-4508-B1C3-7176B677F765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C3B880-C1E3-4508-B1C3-7176B677F765}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

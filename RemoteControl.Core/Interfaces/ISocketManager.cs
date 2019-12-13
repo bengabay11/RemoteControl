@@ -8,7 +8,7 @@ namespace RemoteControl.Core.Interfaces
 {
     public interface ISocketManager
     {
-        void Start();
+        void Start(string ip, int port, int maxConnections);
 
         void Stop();
     }
