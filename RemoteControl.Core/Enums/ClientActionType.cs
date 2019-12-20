@@ -1,5 +1,8 @@
 ﻿public enum ClientActionType
 {
-    executeCommand,
+    terminal,
+    screenshot,
+    upload,
+    download,
     exit
 }
