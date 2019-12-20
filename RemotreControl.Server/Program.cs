@@ -1,4 +1,10 @@
-﻿using System.ServiceProcess;
+﻿using RemoteControl.Core.Interfaces;
+using RemoteControl.Server;
+using RemoteControl.Server.ClientActions;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.ServiceProcess;
 
 namespace RemotreControl.Server
 {
@@ -6,11 +12,15 @@ namespace RemotreControl.Server
     {
         public static void Main()
         {
-            ServiceBase[] ServicesToRun = new ServiceBase[]
+            IDictionary<ClientActionType, IClientAction> clientActions = new Dictionary<ClientActionType, IClientAction>
             {
-                new ServereService(Properties.Settings.Default.ip, Properties.Settings.Default.port, Properties.Settings.Default.maxConnections)
+                { ClientActionType.executeCommand, new TerminalAction() }
             };
-            ServiceBase.Run(ServicesToRun);
+            IFormatter binaryFormatter = new BinaryFormatter();
+            ServerManager serverManager = new ServerManager(clientActions, binaryFormatter);
+            string listeningMessage = string.Format("Listening on port {0}...", Properties.Settings.Default.port);
+            System.Console.WriteLine(listeningMessage);
+            serverManager.Start(Properties.Settings.Default.ip, Properties.Settings.Default.port, Properties.Settings.Default.maxConnections);
         }
     }
 }

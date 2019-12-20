@@ -6,7 +6,7 @@ namespace RemoteControl.Server.ClientActions
 {
     public class TerminalAction : IClientAction
     {
-        public void Act(ClientData clientData, Action<ServerData> send)
+        public void Handle(ClientData clientData, Action<ServerData> send)
         {
             Console.WriteLine("Terminal control...");
         }

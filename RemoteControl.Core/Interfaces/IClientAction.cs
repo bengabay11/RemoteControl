@@ -5,6 +5,6 @@ namespace RemoteControl.Core.Interfaces
 {
     public interface IClientAction
     {
-        void Act(ClientData clientData, Action<ServerData> send);
+        void Handle(ClientData clientData, Action<ServerData> send);
     }
 }

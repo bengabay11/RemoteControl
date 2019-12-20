@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{02C3B880-C1E3-4508-B1C3-7176B677F765}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>RemotreControl.Server</RootNamespace>
     <AssemblyName>RemotreControl.Server</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="RemoteControl.Core">
       <HintPath>..\RemoteControl.Core\bin\Debug\RemoteControl.Core.dll</HintPath>
@@ -56,12 +59,6 @@
     </Compile>
     <Compile Include="Server.cs" />
     <Compile Include="ServerManager.cs" />
-    <Compile Include="ServereService.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ServereService.Designer.cs">
-      <DependentUpon>ServereService.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

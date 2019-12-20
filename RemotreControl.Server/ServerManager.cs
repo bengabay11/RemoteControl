@@ -1,4 +1,5 @@
-﻿using RemoteControl.Core.Interfaces;
+﻿using RemoteControl.Core.Abstracts;
+using RemoteControl.Core.Interfaces;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Runtime.Serialization;
@@ -6,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace RemoteControl.Server
 {
-    public class ServerManager : ISocketManager
+    public class ServerManager : ServerBase
     {
-        private IServer _server;
         private readonly IFormatter _formatter;
         private readonly IDictionary<ClientActionType, IClientAction> _clientActions;
         private bool _stop;
 
-        public ServerManager(IServer server, IDictionary<ClientActionType, IClientAction> clientActions, IFormatter formatter)
+        public ServerManager(IDictionary<ClientActionType, IClientAction> clientActions, IFormatter formatter)
         {
-            _server = server;
             _clientActions = clientActions;
             _formatter = formatter;
             _stop = false;
@@ -25,21 +24,20 @@ namespace RemoteControl.Server
         {
             while (!_stop)
             {
-                Socket client = _server.Accept();
-                ClientHandler clientHandler = new ClientHandler(client, _formatter, _clientActions);
-                Task clientHandlerTask = new Task(clientHandler.Start);
-                clientHandlerTask.Start();
+                Socket clientSocket = Accept();
+                ClientHandler clientHandler = new ClientHandler(clientSocket, _formatter, _clientActions);
+                Task.Factory.StartNew(clientHandler.Start);
             }
         }
 
-        public void Start(string ip, int port, int maxConnections)
+        public override void Start(string ip, int port, int maxConnections)
         {
-            _server.Bind(ip, port);
-            _server.Listen(maxConnections);
-            Task.Factory.StartNew(HandleClients);
+            Bind(ip, port);
+            Listen(maxConnections);
+            HandleClients();
         }
 
-        public void Stop()
+        public override void Stop()
         {
             _stop = true;
         }

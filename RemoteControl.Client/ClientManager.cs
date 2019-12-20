@@ -4,7 +4,7 @@ using System;
 
 namespace RemoteControl.Client
 {
-    public class ClientManager : ISocketManager
+    public class ClientManager
     {
         private IClient _client;
         private bool _stop;

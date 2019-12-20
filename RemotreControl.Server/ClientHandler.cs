@@ -9,7 +9,7 @@ namespace RemoteControl.Server
     public class ClientHandler : IClientHandler
     {
         private readonly NetworkStream _networkStream;
-        private IFormatter _formatter;
+        private readonly IFormatter _formatter;
         private readonly IDictionary<ClientActionType, IClientAction> _clientActions;
         private bool _stop;
 
@@ -26,12 +26,11 @@ namespace RemoteControl.Server
             while (!_stop)
             {
                 ClientData clientData = Receive();
-                System.Console.WriteLine(clientData.Data);
                 foreach (KeyValuePair<ClientActionType, IClientAction> clientAction in _clientActions)
                 {
                     if (clientData.Action == clientAction.Key)
                     {
-                        clientAction.Value.Act(clientData, Send);
+                        clientAction.Value.Handle(clientData, Send);
                     }
                 }
             }
